@@ -11,15 +11,15 @@
 </head>
 <body>
 
-<div class="container text-center">
+<div class="container text-center options">
     <div class="jumbotron">
         <h1>Kitty Memory</h1>
         <hr>
 
-        <button class="btn btn-success btn-lg btn-block" id="easy">Easy</button>
-        <button class="btn btn-warning btn-lg btn-block" id="medium">Medium</button>
-        <button class="btn btn-danger btn-lg btn-block" id="hard">Hard</button>
-        <button class="btn btn-primary btn-lg btn-block" id="memes">Memes</button>
+        <button class="btn btn-success btn-lg btn-block difficulty" id="easy">Easy</button>
+        <button class="btn btn-warning btn-lg btn-block difficulty" id="medium">Medium</button>
+        <button class="btn btn-danger btn-lg btn-block difficulty" id="hard">Hard</button>
+        <button class="btn btn-primary btn-lg btn-block difficulty" id="memes">Memes</button>
     </div>
 </div>
 
@@ -34,6 +34,12 @@
 <div class="container text-center hidden winner">
     <div class="jumbotron">
         <h1>You win! Great job!</h1>
+        <h3>You did it in <span id="time"></span> seconds.</h3>
+        <h3>You took <span id="moves"></span> moves.</h3>
+        <h3>You've won <span id="wins"></span> times.</h3>
+        <h3>Your record is <span id="record"></span> seconds.</h3>
+
+        <button class="btn btn-primary btn-lg btn-block restart">Play Again</button>
     </div>
 </div>
 

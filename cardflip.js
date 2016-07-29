@@ -33,23 +33,38 @@ var memes = [
     '<img src="http://i.imgur.com/QIorchk.png">'
 ];
 
+var tick = 0;
+var easyWins = 0;
+var mediumWins = 0;
+var hardWins = 0;
+var memeWins = 0;
+var moves = 0;
+var easyRecordTime = 1000000000;
+var mediumRecordTime = 1000000000;
+var hardRecordTime = 1000000000;
+var memeRecordTime = 1000000000;
 
+var difficulty = '';
 
 
 $(document).ready(function(){
-    $('.btn').click(function(){
+    $('.difficulty').click(function(){
         switch($(this).attr('id')){
             case "easy":
                 cards = easy;
+                difficulty = 'easy';
                 break;
             case "medium":
                 cards = medium;
+                difficulty = 'medium';
                 break;
             case "hard":
                 cards = hard;
+                difficulty = 'hard';
                 break;
             case "memes":
                 cards = memes;
+                difficulty = 'memes';
                 break;
             default:
                 break;
@@ -60,7 +75,13 @@ $(document).ready(function(){
         make();
     });
 
+    $('.restart').click(function(){
+        $('.winner').addClass('hidden');
+        $('.options').removeClass('hidden');
+    });
+
     function make(){
+        tick = 0;
         var gridSize = cards.length;
         shuffle(cards);
         console.log(cards);
@@ -100,7 +121,7 @@ $(document).ready(function(){
         $('.mg-tile-inner').click(function(){
             $(this).toggleClass('flipped');
             console.log('clicked');
-
+            moves++;
             var cardsUp = $('.mg-tile-inner.flipped');
 
 
@@ -124,7 +145,53 @@ $(document).ready(function(){
                     if($('body').find('.matched').length === cards.length * 2){
                         $('.container-fluid').addClass('hidden');
                         $('.winner').removeClass('hidden');
-                        console.log("winner");
+
+                        var wins;
+                        var recordTime;
+
+                        switch(difficulty){
+                            case 'easy':
+                                easyWins++;
+                                wins = easyWins;
+
+                                if(tick < easyRecordTime){
+                                    recordTime = tick;
+                                }
+
+                                break;
+                            case 'medium':
+                                mediumWins++;
+                                wins = mediumWins;
+
+                                if(tick < mediumRecordTime){
+                                    recordTime = tick;
+                                }
+
+                                break;
+                            case 'hard':
+                                hardWins++;
+                                wins = hardWins;
+
+                                if(tick < hardRecordTime){
+                                    recordTime = tick;
+                                }
+
+                                break;
+                            case 'memes':
+                                memeWins++;
+                                wins = memeWins;
+
+                                if(tick < memeRecordTime){
+                                    recordTime = tick;
+                                }
+
+                                break;
+                        }
+
+                        $('#time').html(tick);
+                        $('#moves').html(moves);
+                        $('#wins').html(wins);
+                        $('#record').html(recordTime);
                     }
                 }, 1000);
             }else if(cardsUp.length === 1){
@@ -138,6 +205,9 @@ $(document).ready(function(){
     }
      
 
+    setInterval(function(){
+        tick++;
+    }, 1000);
 });
 
 function shuffle(array) {
