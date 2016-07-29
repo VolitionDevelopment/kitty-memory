@@ -1,0 +1,52 @@
+.mg-tile{
+    height: 300px;
+    perspective: 500px;
+    min-width: 300px;
+}
+
+.mg-tile-inner{
+    width: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s;
+    margin: auto;
+    
+}
+
+.mg-front, .mg-back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    width: 300px;
+    height: 300px;
+}
+
+.mg-front{
+    transform: rotateY(180deg);
+}
+
+.mg-back{
+    background: url(images/logo.png) 50% 50% no-repeat;
+
+}
+
+.flipped{
+    transform: rotateY(-180deg);
+}
+
+img{
+    width: 100%;
+}
+
+.matched{
+    opacity: 0.0;
+}
+
+.hidden{
+    display: none;
+}
+
+.container{
+    margin-top: 250px;
+}

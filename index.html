@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perspective</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="perspective.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container text-center">
+    <div class="jumbotron">
+        <h1>Kitty Memory</h1>
+        <hr>
+
+        <button class="btn btn-success btn-lg btn-block" id="easy">Easy</button>
+        <button class="btn btn-warning btn-lg btn-block" id="medium">Medium</button>
+        <button class="btn btn-danger btn-lg btn-block" id="hard">Hard</button>
+        <button class="btn btn-primary btn-lg btn-block" id="memes">Memes</button>
+    </div>
+</div>
+
+<div class="container-fluid hidden">
+    <div class="row">
+        <div class="col-sm-12 mg-contents">
+            
+        </div>
+    </div>
+</div>
+
+<div class="container text-center hidden winner">
+    <div class="jumbotron">
+        <h1>You win! Great job!</h1>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="cardflip.js"></script>
+</body>
+</html>
